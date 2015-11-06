@@ -23,7 +23,7 @@ public class ProcesorManagerTest {
 	
 	private final static String NAME_3 = "i3";
 	private final static int SERIALNUMBER_3 = 3;
-	private final static String FREQUENCY_3 = "2300";
+	private final static String FREQUENCY_3 = "(2300";
 	
 	@Before
 	public void init(){

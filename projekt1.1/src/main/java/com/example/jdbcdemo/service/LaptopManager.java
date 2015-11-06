@@ -11,8 +11,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.example.jdbcdemo.domain.Procesor;
 import com.example.jdbcdemo.domain.Laptop;
+import com.example.jdbcdemo.domain.Procesor;
+
+//import com.example.jdbcdemo.domain.Procesor;
+//import com.example.jdbcdemo.domain.Laptop;
 
 public class LaptopManager {
 	private Connection connection;
@@ -28,7 +31,7 @@ public class LaptopManager {
 	private PreparedStatement deleteAllLaptopsStmt;
 	private PreparedStatement deleteAllProcesorsStmt;
 	private PreparedStatement deleteLaptopStmt;
-	private String url = "jdbc:hsqldb:hsql://localhost/";
+	private String url = "jdbc:hsqldb:hsql://localhost/workdb";
 	public LaptopManager() {
 		super();
 		try {
@@ -49,7 +52,7 @@ public class LaptopManager {
 			
 			addLaptopStmt = connection.prepareStatement("INSERT INTO Laptop (brand, model, hdd, ram) VALUES (?,?,?,?)");
 			updateLaptopToProcesorStmt = connection.prepareStatement("UPDATE Laptop SET serialnumber = ? WHERE ram = ? ");
-			addProcesorStmt = connection.prepareStatement("INSERT INTO Procesor (name, serialNumber, frequency) VALUES (?,?,?)");
+			addProcesorStmt = connection.prepareStatement("INSERT INTO Procesor (name, serialnumber, frequency) VALUES (?,?,?)");
 			getAllProcesorsStmt = connection.prepareStatement("SELECT id, name, serialNumber, frequency From Procesor");
 			getAllLaptopsStmt = connection.prepareStatement("SELECT id, brand, model, hdd, ram, serialnumber FROM Laptop");
 			getAllLaptopsAfterStmt = connection.prepareStatement("SELECT id, brand, model, hdd, ram, serialnumber FROM Laptop Where ram > ?");
@@ -67,14 +70,14 @@ public class LaptopManager {
 	public int addLaptop(Laptop laptop){
 		int count = 0;
 		try {
-			connection.setAutoCommit(false);
+			//connection.setAutoCommit(false);
 			addLaptopStmt.setString(1, laptop.getBrand());
 			addLaptopStmt.setString(2, laptop.getModel());
 			addLaptopStmt.setInt(3, laptop.getHdd());
 			addLaptopStmt.setInt(4, laptop.getRam());
 			count = addLaptopStmt.executeUpdate();
-			connection.commit();
-			connection.setAutoCommit(true);
+			//connection.commit();
+			//connection.setAutoCommit(true);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -84,11 +87,11 @@ public class LaptopManager {
 	}
 	public void clearLaptops() {
 		try {
-			connection.setAutoCommit(false);
+		//	connection.setAutoCommit(false);
 			deleteAllLaptopsStmt.executeUpdate();
 			deleteAllProcesorsStmt.executeUpdate();
-			connection.commit();
-			connection.setAutoCommit(true);
+		//	connection.commit();
+		//	connection.setAutoCommit(true);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,7 +104,7 @@ public class LaptopManager {
 		try {
 			ResultSet rs = getAllLaptopsStmt.executeQuery();
 			while (rs.next()){
-				tmpR.setSerialNumber(rs.getInt("serialNumber"));
+				tmpR.setSerialNumber(rs.getInt("serialnumber"));
 				if(((Integer)tmpR.getSerialNumber()).equals(procesor.getSerialNumber())){
 					count++;
 				}
@@ -124,7 +127,7 @@ public class LaptopManager {
 				r.setModel(rs.getString("model"));
 				r.setHdd(rs.getInt("hdd"));
 				r.setRam(rs.getInt("ram"));
-				r.setSerialNumber(rs.getInt("serialNumber"));
+				r.setSerialNumber(rs.getInt("serialnumber"));
 				resources.add(r);
 			}
 		} catch (SQLException e) {
@@ -150,7 +153,7 @@ public class LaptopManager {
 			ResultSet rs = getAllLaptopsStmt.executeQuery();
 			while (rs.next()){
 				Procesor tmpA = new Procesor();
-				tmpA.setSerialNumber(rs.getInt("serialNumber"));
+				tmpA.setSerialNumber(rs.getInt("serialnumber"));
 				if(((Integer)tmpA.getSerialNumber()).equals(a.getSerialNumber())){
 					updateLaptopToProcesorStmt.setInt(1, a.getSerialNumber());
 					updateLaptopToProcesorStmt.setInt(2, r.getHdd());
@@ -208,7 +211,7 @@ public class LaptopManager {
 			ResultSet rs = getAllProcesorsStmt.executeQuery();
 			while (rs.next()){
 				Procesor tmpA = new Procesor();
-				tmpA.setSerialNumber(rs.getInt("serialNumber"));
+				tmpA.setSerialNumber(rs.getInt("serialnumber"));
 				if(((Integer)tmpA.getSerialNumber()).equals(a.getSerialNumber())){
 					deleteLaptopStmt.setInt(1, tmpA.getSerialNumber());
 					deleteLaptopStmt.executeUpdate();
@@ -245,7 +248,7 @@ public class LaptopManager {
 		connection.setAutoCommit(false);
 		ResultSet rsA = getAllProcesorsStmt.executeQuery();
 		while (rsA.next()){
-			if(((Integer)rsA.getInt("serialNumber")).equals((Integer)a.getSerialNumber())){
+			if(((Integer)rsA.getInt("serialnumber")).equals((Integer)a.getSerialNumber())){
 				archiveExists = 1;
 				break;
 			}
@@ -254,7 +257,7 @@ public class LaptopManager {
 			ResultSet rs = getAllLaptopsStmt.executeQuery();
 			while (rs.next()){
 				Laptop tmpR = new Laptop();
-				tmpR.setSerialNumber(rs.getInt("serialNumber"));
+				tmpR.setSerialNumber(rs.getInt("serialnumber"));
 				if(((Integer)tmpR.getSerialNumber()).equals(a.getSerialNumber())){
 					count ++;
 				}
@@ -285,7 +288,7 @@ public class LaptopManager {
 		connection.setAutoCommit(false); 
 		ResultSet rsA = getAllProcesorsStmt.executeQuery();
 		while (rsA.next()){
-			if(((Integer)rsA.getInt("serialNumber")).equals((Integer)a.getSerialNumber())){
+			if(((Integer)rsA.getInt("serialnumber")).equals((Integer)a.getSerialNumber())){
 				archiveExists = 1;
 				break;
 			}
@@ -295,7 +298,7 @@ public class LaptopManager {
 			ResultSet rs = getAllLaptopsAfterStmt.executeQuery();
 			while (rs.next()){
 				Laptop tmpR = new Laptop();
-				tmpR.setSerialNumber(rs.getInt("serialNumber"));
+				tmpR.setSerialNumber(rs.getInt("serialnumber"));
 				if(((Integer)tmpR.getSerialNumber()).equals(a.getSerialNumber())){
 					count ++;
 				}

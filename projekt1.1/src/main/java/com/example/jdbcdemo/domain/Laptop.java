@@ -7,7 +7,7 @@ public class Laptop implements Comparable<Laptop>{
 	private String model;
 	private int hdd;
 	private int ram;
-	private int serialNumber;
+	private int serialnumber;
 	
 	public Laptop() {
 		super();
@@ -33,7 +33,7 @@ public class Laptop implements Comparable<Laptop>{
 		this.model = model1;
 		this.hdd = hdd1;
 		this.ram = ram1;
-		this.serialNumber = serialNumber1;
+		this.serialnumber = serialNumber1;
 	}
 	public long getId() {
 		return id;
@@ -55,10 +55,10 @@ public class Laptop implements Comparable<Laptop>{
 		this.hdd = hdd;
 	}
 	public int getSerialNumber() {
-		return serialNumber;
+		return serialnumber;
 	}
 	public void setSerialNumber(int serialNumber) {
-		this.serialNumber = serialNumber;
+		this.serialnumber = serialNumber;
 	}
 	
 	public String getModel() {

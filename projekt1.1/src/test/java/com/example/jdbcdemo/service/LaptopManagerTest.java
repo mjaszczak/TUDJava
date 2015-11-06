@@ -19,7 +19,7 @@ public class LaptopManagerTest {
 	private final static String MODEL_1 = "N551";
 	private final static int HDD_1 = 512;
 	private final static int RAM_1 = 8;
-	private final static int SERIALNUMBER_1 = 5;
+	//private final static int SERIALNUMBER_1 = 5;
 	
 	private final static String BRAND_2 = "HP";
 	private final static String MODEL_2 = "elitebook";
@@ -40,7 +40,7 @@ public class LaptopManagerTest {
 	private final static String FREQUENCYPROCESOR_2 = "4000";
 	private final static int SERIALNUMBERPROCESOR_3 = 3;
 	
-	@Before
+/*	@Before
 	public void init(){
 		Laptop laptop1 = new Laptop(BRAND_1, MODEL_1, HDD_1, RAM_1);
 		Laptop laptop2 = new Laptop(BRAND_2, MODEL_2, HDD_2, RAM_2);
@@ -52,12 +52,12 @@ public class LaptopManagerTest {
 		assertEquals(1, procesorManager.addProcesor(procesor1));
 		assertEquals(1, procesorManager.addProcesor(procesor2));
 	}
-	
+	*/
 	@Test
 	public void checkConnection(){
 		assertNotNull(laptopManager.getConnection());
 	}
-   
+ 
 	@Test
 	public void checkAdding() {
 		Set<Laptop> laptops = laptopManager.getAllLaptops();
@@ -116,32 +116,5 @@ public class LaptopManagerTest {
 		}
 		
 	}
-	/*
-	@Test
-	public void checkSelectingResourceFromArchive(){
-		Resource resource2 = new Resource(NAME_2, AUTHOR_2, ISBN_2, DATE_2);
-		Resource resource3 = new Resource(NAME_3, AUTHOR_3, ISBN_3, DATE_3);
-		Archive archive3 = new Archive(NAMEARCHIVE_1, TEAMNUMBERARCHIVE_3, PHONEARCHIVE_1);
-		resourceManager.clearResources();
-		assertEquals(0, resourceManager.countRows(archive3));
-		assertEquals(1, resourceManager.addResourceToArchive(resource3, archive3));
-		assertEquals(1, resourceManager.addResourceToArchive(resource2, archive3));
-		assertEquals(2, resourceManager.countRows(archive3));
-		assertEquals(2, resourceManager.selectResourceFromArchive(archive3));
-		
-	}
-	
-	@Test
-	public void checkSelectingResourceFromArchiveAfter(){
-		Resource resource2 = new Resource(NAME_2, AUTHOR_2, ISBN_2, DATE_2);
-		Resource resource3 = new Resource(NAME_3, AUTHOR_3, ISBN_3, DATE_3);
-		Archive archive3 = new Archive(NAMEARCHIVE_1, TEAMNUMBERARCHIVE_3, PHONEARCHIVE_1);
-		resourceManager.clearResources();
-		assertEquals(0, resourceManager.countRows(archive3));
-		assertEquals(1, resourceManager.addResourceToArchive(resource3, archive3));
-		assertEquals(1, resourceManager.addResourceToArchive(resource2, archive3));
-		assertEquals(2, resourceManager.countRows(archive3));
-		assertEquals(2, resourceManager.selectResourceFromArchiveAfter(archive3, 1787));
-		
-	} */
+
 }
