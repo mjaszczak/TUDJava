@@ -8,8 +8,9 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.example.jdbcdemo.domain.Procesor;
+//import com.example.jdbcdemo.domain.Procesor;
 import com.example.jdbcdemo.domain.Laptop;
+import com.example.jdbcdemo.domain.Procesor;
 
 public class LaptopManagerTest {
 	LaptopManager laptopManager = new LaptopManager();
@@ -19,7 +20,7 @@ public class LaptopManagerTest {
 	private final static String MODEL_1 = "N551";
 	private final static int HDD_1 = 512;
 	private final static int RAM_1 = 8;
-	//private final static int SERIALNUMBER_1 = 5;
+	private final static int SERIALNUMBER_1 = 5;
 	
 	private final static String BRAND_2 = "HP";
 	private final static String MODEL_2 = "elitebook";
@@ -40,7 +41,7 @@ public class LaptopManagerTest {
 	private final static String FREQUENCYPROCESOR_2 = "4000";
 	private final static int SERIALNUMBERPROCESOR_3 = 3;
 	
-/*	@Before
+	@Before
 	public void init(){
 		Laptop laptop1 = new Laptop(BRAND_1, MODEL_1, HDD_1, RAM_1);
 		Laptop laptop2 = new Laptop(BRAND_2, MODEL_2, HDD_2, RAM_2);
@@ -52,13 +53,13 @@ public class LaptopManagerTest {
 		assertEquals(1, procesorManager.addProcesor(procesor1));
 		assertEquals(1, procesorManager.addProcesor(procesor2));
 	}
-	*/
+	
 	@Test
 	public void checkConnection(){
 		assertNotNull(laptopManager.getConnection());
 	}
  
-	@Test
+	/*@Test
 	public void checkAdding() {
 		Set<Laptop> laptops = laptopManager.getAllLaptops();
 		for (Laptop s : laptops) {
@@ -67,6 +68,7 @@ public class LaptopManagerTest {
 				assertEquals(MODEL_1, s.getModel());
 				assertEquals(HDD_1, s.getHdd());
 				assertEquals(RAM_1, s.getRam());
+				
 			} else if (s.getHdd() == HDD_2) {
 				assertEquals(BRAND_2, s.getBrand());
 				assertEquals(MODEL_2, s.getModel());
@@ -74,9 +76,9 @@ public class LaptopManagerTest {
 				assertEquals(RAM_2, s.getRam());
 			}
 		}
-	}
+	}*/
 	
-	@Test
+	/*@Test
 	public void checkAddingLaptopToProcesor(){
 		Laptop laptop3 = new Laptop(BRAND_3, MODEL_3, HDD_3, RAM_3);
 		Procesor procesor3 = new Procesor(NAMEPROCESOR_1, SERIALNUMBERPROCESOR_3, FREQUENCYPROCESOR_1);
@@ -93,9 +95,9 @@ public class LaptopManagerTest {
 				assertEquals(SERIALNUMBERPROCESOR_3, s.getSerialNumber());
 			}
 		}
-	}
+	}*/
 	
-	@Test
+	/*@Test
 	public void checkDeletingLaptopFromProcesor(){
 		Laptop laptop3 = new Laptop(BRAND_3, MODEL_3, HDD_3, RAM_3);
 		Procesor procesor3 = new Procesor(NAMEPROCESOR_1, SERIALNUMBERPROCESOR_3, FREQUENCYPROCESOR_1);
@@ -115,6 +117,6 @@ public class LaptopManagerTest {
 			}
 		}
 		
-	}
+	}*/
 
 }

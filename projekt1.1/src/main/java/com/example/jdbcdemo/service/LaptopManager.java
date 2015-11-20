@@ -51,7 +51,7 @@ public class LaptopManager {
 				statement.executeUpdate(createLaptopTable);
 			
 			addLaptopStmt = connection.prepareStatement("INSERT INTO Laptop (brand, model, hdd, ram) VALUES (?,?,?,?)");
-			updateLaptopToProcesorStmt = connection.prepareStatement("UPDATE Laptop SET serialnumber = ? WHERE ram = ? ");
+			updateLaptopToProcesorStmt = connection.prepareStatement("UPDATE Laptop SET serialNumber = ? WHERE ram = ? ");
 			addProcesorStmt = connection.prepareStatement("INSERT INTO Procesor (name, serialnumber, frequency) VALUES (?,?,?)");
 			getAllProcesorsStmt = connection.prepareStatement("SELECT id, name, serialNumber, frequency From Procesor");
 			getAllLaptopsStmt = connection.prepareStatement("SELECT id, brand, model, hdd, ram, serialnumber FROM Laptop");
