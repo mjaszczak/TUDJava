@@ -25,3 +25,6 @@ dist
 
 # hsqldb
 hsqldb*
+
+# idea
+.idea
