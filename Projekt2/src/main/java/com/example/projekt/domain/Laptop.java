@@ -12,8 +12,7 @@ import javax.persistence.*;
 public class Laptop implements java.io.Serializable{
 
     private Long id;
-    private String firma;
-    private String model;
+    private String nazwa;
     private Procesor procesor;
 
     @Id
@@ -25,20 +24,14 @@ public class Laptop implements java.io.Serializable{
         this.id = id;
     }
 
-    @Column(nullable = false)
-    public String getFirma() {
-        return firma;
+
+    public String getNazwa() {
+        return nazwa;
     }
-    public void setFirma(String firma) {
-        this.firma = firma;
+    public void setNazwal(String nazwa) {
+        this.nazwa = nazwa;
     }
 
-    public String getModel() {
-        return model;
-    }
-    public void setModel(String model) {
-        this.model = model;
-    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_procesor", nullable = false)
