@@ -25,7 +25,7 @@ public class Procesor {
         this.id = id;
     }
 
-    @OneToMany(mappedBy = "laptop", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "procesor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public List<Laptop> getLaptopy() {
         return laptopy;
     }

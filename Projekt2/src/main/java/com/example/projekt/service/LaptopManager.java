@@ -10,6 +10,19 @@ public interface LaptopManager {
     Laptop pobierzLaptopPoId(Long id);
     Procesor pobierzProcesorPoId(Long id);
 
-    void edytuj
+    List<Laptop> dajWszystkieLaptopy();
+    List<Procesor> dajWszystkieProcesory();
+
+    void edytuj (Laptop l, String nazwa, Procesor procesor);
+    void edytuj (Procesor p, String procesor, String opis);
+
+    void usun(Procesor p);
+    void usun(Laptop l);
+
+
+    List<Laptop> wyszukajLaptopPoProcesorze(String szukanyProcesor);
+
+    List<Laptop> wyszukajLaptop(Procesor procesor);
+
 
 }
