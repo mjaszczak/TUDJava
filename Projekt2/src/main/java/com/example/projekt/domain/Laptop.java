@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 @Entity
 @NamedQueries({
+        @NamedQuery(name = "wyszukiwanie.obiekt", query = "SELECT l FROM Laptop l WHERE l.procesor LIKE :procesor"),
+        @NamedQuery(name = "wyszukiwanie.string", query = "SELECT l FROM Laptop l WHERE l.procesor.model LIKE :szukanyProcesor"),
         @NamedQuery(name = "laptop.wszystkie", query = "SELECT l FROM Laptop l")
 })
 

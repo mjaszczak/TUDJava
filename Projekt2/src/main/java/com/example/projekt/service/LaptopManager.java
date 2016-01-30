@@ -13,8 +13,11 @@ public interface LaptopManager {
     List<Laptop> dajWszystkieLaptopy();
     List<Procesor> dajWszystkieProcesory();
 
-    void edytuj (Laptop l, String nazwa, Procesor procesor);
-    void edytuj (Procesor p, String procesor, String opis);
+    Long dodaj(Procesor procesor);
+    Long dodaj(Laptop laptop);
+
+    void edytuj(Laptop laptop);
+    void edytuj(Procesor procesor);
 
     void usun(Procesor p);
     void usun(Laptop l);
