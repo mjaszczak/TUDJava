@@ -30,7 +30,7 @@ public class Laptop implements java.io.Serializable{
     public String getNazwa() {
         return nazwa;
     }
-    public void setNazwal(String nazwa) {
+    public void setNazwa(String nazwa) {
         this.nazwa = nazwa;
     }
 
