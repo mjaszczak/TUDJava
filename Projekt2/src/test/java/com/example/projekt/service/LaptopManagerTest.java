@@ -90,6 +90,85 @@ public class LaptopManagerTest {
         }
     }
 
+    @Test
+    public void Edycja() {
+
+        Procesor proc = new Procesor();
+
+        proc.setProcesor(procesor1);
+        proc.setOpis(opisProcesora1);
+
+        Laptop lap = new Laptop();
+
+        lap.setProcesor(proc);
+        lap.setNazwa(laptop1);
+
+
+        Long procID = manager.dodaj(proc);
+        Long lapID = manager.dodaj(lap);
+
+        List<Laptop> laptopy = manager.dajWszystkieLaptopy();
+        List<Procesor> procesory = manager.dajWszystkieProcesory();
+
+        proc.setProcesor(procesor2);
+        proc.setOpis(opisProcesora2);
+
+        manager.edytuj(proc);
+
+        lap.setProcesor(proc);
+        lap.setNazwa(laptop2);
+        manager.edytuj(lap);
+
+
+        int a = 0;
+        int b = 0;
+
+        List<Laptop> laptopy2 = manager.dajWszystkieLaptopy();
+        List<Procesor> procesory2 = manager.dajWszystkieProcesory();
+
+        for(Laptop laptop : laptopy) {
+            for (Laptop lap2 : laptopy2){
+                if(laptop.getId() == lap2.getId()) {
+                    if (laptop.getId() != lapID) {
+                        assertEquals(lap2.getProcesor().getProcesor(), laptop.getProcesor().getProcesor());
+                        assertEquals(lap2.getProcesor().getOpis(), laptop.getProcesor());
+                        assertEquals(lap2.getNazwa(), laptop.getNazwa());
+                        a++;
+                    } else if (laptop.getId() == lapID) {
+                        assertEquals(procesor2, laptop.getProcesor().getProcesor());
+                        assertEquals(opisProcesora2, laptop.getProcesor().getOpis());
+                        assertEquals(laptop2, laptop.getNazwa());
+                        b++;
+                    }
+                }
+            }
+        }
+        assertEquals(b, 1);
+        assertEquals(a+b, laptopy2.size());
+        assertEquals(laptopy.size(), laptopy2.size());
+        a = 0;
+        b = 0;
+        for(Procesor procesor : procesory) {
+            for (Procesor proc2 : procesory2){
+                if(procesor.getId() == proc2.getId()) {
+                    if (procesor.getId() != procID) {
+                        assertEquals(procesory2.get(a).getProcesor(), procesor.getProcesor());
+                        assertEquals(procesory2.get(a).getOpis(), procesor.getOpis());
+                        a++;
+                    } else if (procesor.getId() == procID) {
+                        assertEquals(procesor2, procesor.getProcesor());
+                        assertEquals(opisProcesora2, procesor.getOpis());
+                        b++;
+                    }
+                }
+            }
+        }
+
+        assertEquals(b, 1);
+        assertEquals(a+b, procesory2.size());
+        assertEquals(procesory.size(), procesory2.size());
+    }
+
 
 
     @Test

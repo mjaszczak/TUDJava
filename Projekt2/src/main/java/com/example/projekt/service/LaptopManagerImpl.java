@@ -36,12 +36,12 @@ public class LaptopManagerImpl implements LaptopManager {
     @Override
     @SuppressWarnings("unchecked")
     public List<Procesor> dajWszystkieProcesory() {
-        return sf.getCurrentSession().getNamedQuery("Procesory.wszystkie").list();
+        return sf.getCurrentSession().getNamedQuery("Procesor.wszystkie").list();
     }
 
     @Override
     public List<Laptop> wyszukajLaptopPoProcesorze(String szukanyProcesor){
-        return sf.getCurrentSession().getNamedQuery("wyszukiwanie.string").setString("szukanyProcesor",szukanyProcesor).list();
+       return sf.getCurrentSession().getNamedQuery("Wyszukiwanie.string").setString("szukanyProcesor",szukanyProcesor).list();
     }
 
     @Override
