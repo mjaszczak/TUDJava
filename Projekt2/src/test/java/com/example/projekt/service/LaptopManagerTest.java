@@ -258,12 +258,16 @@ public class LaptopManagerTest {
         laptop.setNazwa(laptop1);
 
         manager.dodaj(proc);
-        manager.dodaj(laptop);
+        Long lapID = manager.dodaj(laptop);
 
         assertEquals(manager.dajWszystkieLaptopy().size(), ile+1);
 
         manager.usun(laptop);
         assertEquals(manager.dajWszystkieLaptopy().size(), ile);
+
+        Laptop lapPoId = manager.pobierzLaptopPoId(lapID);
+
+        assertEquals(lapPoId, null);
 
     }
 
@@ -281,13 +285,18 @@ public class LaptopManagerTest {
         laptop.setProcesor(proc);
         laptop.setNazwa(laptop1);
 
-        manager.dodaj(proc);
+        long procID = manager.dodaj(proc);
         manager.dodaj(laptop);
 
         assertEquals(manager.dajWszystkieProcesory().size(), ile+1);
 
         manager.usun(proc);
         assertEquals(manager.dajWszystkieProcesory().size(), ile);
+
+        Procesor procPoId = manager.pobierzProcesorPoId(procID);
+
+        assertEquals(procPoId, null);
+
 
     }
 
