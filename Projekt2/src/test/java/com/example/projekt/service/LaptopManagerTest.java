@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/beans.xml" })
-@TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
+@TransactionConfiguration(transactionManager = "txManager", defaultRollback = false)
 @Transactional
 public class LaptopManagerTest {
 
@@ -241,6 +241,54 @@ public class LaptopManagerTest {
         }
 
         assertEquals(manager.wyszukajLaptop(proc2).size(), 0);
+
+    }
+
+    @Test
+    public void UsunLaptopa(){
+
+        int ile = manager.dajWszystkieLaptopy().size();
+
+        Procesor proc = new Procesor();
+
+        proc.setProcesor(procesor1);
+        proc.setOpis(opisProcesora1);
+
+        Laptop laptop = new Laptop();
+        laptop.setProcesor(proc);
+        laptop.setNazwa(laptop1);
+
+        manager.dodaj(proc);
+        manager.dodaj(laptop);
+
+        assertEquals(manager.dajWszystkieLaptopy().size(), ile+1);
+
+        manager.usun(laptop);
+        assertEquals(manager.dajWszystkieLaptopy().size(), ile);
+
+    }
+
+    @Test
+    public void UsunProcesor(){
+
+        int ile = manager.dajWszystkieProcesory().size();
+
+        Procesor proc = new Procesor();
+
+        proc.setProcesor(procesor1);
+        proc.setOpis(opisProcesora1);
+
+        Laptop laptop = new Laptop();
+        laptop.setProcesor(proc);
+        laptop.setNazwa(laptop1);
+
+        manager.dodaj(proc);
+        manager.dodaj(laptop);
+
+        assertEquals(manager.dajWszystkieProcesory().size(), ile+1);
+
+        manager.usun(proc);
+        assertEquals(manager.dajWszystkieProcesory().size(), ile);
 
     }
 

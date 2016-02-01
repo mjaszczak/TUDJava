@@ -72,8 +72,8 @@
       <file leaf-file-name="LaptopManagerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/example/projekt/service/LaptopManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47715735">
-              <caret line="216" column="28" selection-start-line="216" selection-start-column="28" selection-end-line="216" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.68358713">
+              <caret line="283" column="0" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -776,32 +776,11 @@
       <workItem from="1454279489982" duration="398000" />
       <workItem from="1454279957305" duration="682000" />
       <workItem from="1454265052429" duration="279000" />
-      <workItem from="1454265533745" duration="5409000" />
+      <workItem from="1454265533745" duration="6891000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LaptopManagerTest - 2016.02.01 at 00h 33m 25s.xml">
-      <configuration name="LaptopManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LaptopManagerTest - 2016.02.01 at 00h 41m 46s.xml">
-      <configuration name="LaptopManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LaptopManagerTest - 2016.02.01 at 00h 42m 55s.xml">
-      <configuration name="LaptopManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LaptopManagerTest - 2016.02.01 at 00h 48m 01s.xml">
-      <configuration name="LaptopManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LaptopManagerTest - 2016.02.01 at 01h 07m 30s.xml">
-      <configuration name="LaptopManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LaptopManagerTest - 2016.02.01 at 01h 07m 39s.xml">
-      <configuration name="LaptopManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LaptopManagerTest - 2016.02.01 at 01h 14m 01s.xml">
-      <configuration name="LaptopManagerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LaptopManagerTest - 2016.02.01 at 01h 14m 38s.xml">
       <configuration name="LaptopManagerTest" configurationId="JUnit" />
     </history-entry>
@@ -811,9 +790,30 @@
     <history-entry file="LaptopManagerTest - 2016.02.01 at 01h 52m 58s.xml">
       <configuration name="LaptopManagerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="LaptopManagerTest - 2016.02.01 at 02h 11m 13s.xml">
+      <configuration name="LaptopManagerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LaptopManagerTest - 2016.02.01 at 02h 13m 14s.xml">
+      <configuration name="LaptopManagerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LaptopManagerTest - 2016.02.01 at 02h 14m 29s.xml">
+      <configuration name="LaptopManagerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LaptopManagerTest - 2016.02.01 at 02h 15m 26s.xml">
+      <configuration name="LaptopManagerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LaptopManagerTest - 2016.02.01 at 02h 15m 30s.xml">
+      <configuration name="LaptopManagerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LaptopManagerTest - 2016.02.01 at 02h 16m 20s.xml">
+      <configuration name="LaptopManagerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LaptopManagerTest - 2016.02.01 at 02h 20m 34s.xml">
+      <configuration name="LaptopManagerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25865000" />
+    <option name="totallyTimeSpent" value="27347000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1284,6 +1284,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projekt/service/LaptopManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projekt/service/LaptopManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1304,20 +1314,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projekt/service/LaptopManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/example/projekt/service/LaptopManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47715735">
-          <caret line="216" column="28" selection-start-line="216" selection-start-column="28" selection-end-line="216" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.68358713">
+          <caret line="283" column="0" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
