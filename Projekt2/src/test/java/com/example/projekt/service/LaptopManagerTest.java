@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/beans.xml" })
-@TransactionConfiguration(transactionManager = "txManager", defaultRollback = false)
+@TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 @Transactional
 public class LaptopManagerTest {
 
@@ -131,7 +131,6 @@ public class LaptopManagerTest {
                 if(laptop.getId() == lap2.getId()) {
                     if (laptop.getId() != lapID) {
                         assertEquals(lap2.getProcesor().getProcesor(), laptop.getProcesor().getProcesor());
-                        assertEquals(lap2.getProcesor().getOpis(), laptop.getProcesor());
                         assertEquals(lap2.getNazwa(), laptop.getNazwa());
                         a++;
                     } else if (laptop.getId() == lapID) {
@@ -342,6 +341,22 @@ public class LaptopManagerTest {
 
     }
 
-    
+    @Test
+    public void PobieranieWszystkichProcesorow() {
+        List<Procesor> procesory = manager.dajWszystkieProcesory();
+        int ile = procesory.size();
+
+        Procesor proc = new Procesor();
+
+        proc.setProcesor(procesor1);
+        proc.setOpis(opisProcesora1);
+
+        manager.dodaj(proc);
+        procesory = manager.dajWszystkieProcesory();
+        assertEquals(ile+1, procesory.size());
+    }
 
 }
+
+//insert into procesor values (1,'Core i5','4x 4ghz')
+//insert into laptop values (1,'Toshiba',1)
