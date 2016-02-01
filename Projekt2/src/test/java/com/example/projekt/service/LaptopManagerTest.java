@@ -292,4 +292,56 @@ public class LaptopManagerTest {
 
     }
 
+    @Test
+    public void UsunPowiazaneLaptopyZProcesorem(){
+
+        int ileProcesorow = manager.dajWszystkieProcesory().size();
+        int ileLaptopow = manager.dajWszystkieLaptopy().size();
+
+        Procesor proc = new Procesor();
+
+        proc.setProcesor(procesor1);
+        proc.setOpis(opisProcesora1);
+
+        Laptop laptop = new Laptop();
+        laptop.setProcesor(proc);
+        laptop.setNazwa(laptop1);
+
+        manager.dodaj(proc);
+        manager.dodaj(laptop);
+
+        assertEquals(manager.dajWszystkieLaptopy().size(), ileLaptopow+1);
+        assertEquals(manager.dajWszystkieProcesory().size(), ileProcesorow+1);
+
+        manager.usun(proc);
+
+        assertEquals(manager.dajWszystkieProcesory().size(), ileProcesorow);
+        assertEquals(manager.dajWszystkieLaptopy().size(), ileLaptopow);
+
+
+
+    }
+
+    @Test
+    public void PobraniePoID(){
+        Procesor proc = new Procesor();
+
+        proc.setProcesor(procesor1);
+        proc.setOpis(opisProcesora1);
+
+        Laptop lap = new Laptop();
+        lap.setProcesor(proc);
+        lap.setNazwa(laptop1);
+
+        Long procesorID = manager.dodaj(proc);
+        Long laptopID =manager.dodaj(lap);
+
+        Laptop lap2 = manager.pobierzLaptopPoId(laptopID);
+
+        assertEquals(laptopID, lap2.getId());
+
+    }
+
+    
+
 }
