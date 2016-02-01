@@ -200,4 +200,48 @@ public class LaptopManagerTest {
 
     }
 
+    @Test
+    public void WyszukanieLaptopa(){
+
+
+        Procesor proc = new Procesor();
+
+        proc.setProcesor(procesor1);
+        proc.setOpis(opisProcesora1);
+
+        Procesor proc2 = new Procesor();
+
+        proc2.setProcesor(procesor2);
+        proc2.setOpis(opisProcesora2);
+
+        manager.dodaj(proc);
+        manager.dodaj(proc2);
+
+        Laptop lap = new Laptop();
+
+        lap.setProcesor(proc);
+        lap.setNazwa(laptop1);
+
+        Laptop lap2 = new Laptop();
+
+        lap2.setProcesor(proc);
+        lap2.setNazwa(laptop2);
+
+
+
+        manager.dodaj(lap);
+        manager.dodaj(lap2);
+
+        assertEquals(manager.wyszukajLaptop(proc).size(), 2);
+
+        for(Laptop laptop : manager.wyszukajLaptop(proc)) {
+            assertEquals(proc.getId(), laptop.getProcesor().getId());
+            assertEquals(proc.getProcesor(), laptop.getProcesor().getProcesor());
+            assertEquals(proc.getOpis(), laptop.getProcesor().getOpis());
+        }
+
+        assertEquals(manager.wyszukajLaptop(proc2).size(), 0);
+
+    }
+
 }

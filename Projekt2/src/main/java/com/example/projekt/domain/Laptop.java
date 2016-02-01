@@ -43,4 +43,5 @@ public class Laptop implements java.io.Serializable{
     public void setProcesor(Procesor procesor) { this.procesor = procesor; }
 
 
+
 }
